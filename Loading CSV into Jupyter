@@ -1,0 +1,13 @@
+import pandas as pd
+import os
+os.getcwd()
+
+# will spit out current directory
+
+# Make sure to replace backslashes!
+
+os.chdir('C:/Users/Me/data and datasheets')
+
+
+
+dataset = pd.read_csv('test.data.csv')
