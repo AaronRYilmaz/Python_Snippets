@@ -1,0 +1,47 @@
+import pandas as pd
+import os
+os.getcwd()
+
+# will spit out current directory
+
+# Make sure to replace backslashes!
+
+os.chdir('C:/Users/Aaron.Yilmaz/OneDrive - USDA/Documents/Ambrosia beetle management/data and datasheets')
+
+
+
+dataset = pd.read_csv('test.data.csv')
+
+dataset.head()
+
+dataset.shape
+
+dataset.info()
+
+dataset.describe()
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+%matplotlib inline
+
+dataset['maiche'].plot(kind='box', vert=False, figsize=(11,3))
+
+m=dataset[['maiche', 'type']].boxplot(by='type', figsize=(10,6))
+m.set_ylabel('Number of A. maiche')
+
+
+dataset['maiche'].plot(kind='density', figsize=(11,3))
+
+ma = dataset['maiche'].plot(kind='density', figsize=(11,3))
+ma.axvline(dataset['maiche'].mean(), color='red')
+ma.axvline(dataset['maiche'].median(), color='green')
+
+ma = dataset['maiche'].plot(kind='hist', figsize=(11,3))
+ma.set_ylabel('Y axis label')
+ma.set_xlabel('X axis label')
+
+corr = dataset.corr()
+corr
+
+dataset.plot(kind='scatter', x='type', y='maiche', figsize=(6,6))
